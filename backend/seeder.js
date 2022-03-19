@@ -21,3 +21,19 @@ const importData = async () => {
         process.exit(1);
     }
 };
+
+const destroyData = async () => {
+    try {
+        await House.deleteMany();
+        console.log('Data destroyed');
+        process.exit();
+    } catch (error) {
+        console.error(`${error}`);
+        process.exit(1);
+    }
+}
+if (process.argv[2] === '-d') {
+    destroyData();
+} else {
+    importData();
+}
