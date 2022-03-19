@@ -9,6 +9,10 @@ const app = express();
 dotenv.config();
 connectDB();
 app.use(cors());
+// app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
+app.use(express.static('public'));
 
 app.get('/', (req, res) => {
     res.send('<h1>Hello from backend, API is running...</h1>');

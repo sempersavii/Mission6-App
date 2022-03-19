@@ -24,6 +24,9 @@ const SearchAHouse = () => {
                     <ListGroup variant="flush" key={house._id}>
                       <ListGroup.Item>House Name: {house.name}</ListGroup.Item>
                       <ListGroup.Item>House Location: {house.location}</ListGroup.Item>
+                      <ListGroup.Item>House Image: 
+                        <img src={house.image} alt="apt pic" fluid />
+                      </ListGroup.Item>
                       <ListGroup.Item>House Description: {house.description}</ListGroup.Item>
                   </ListGroup>
                   ))}
