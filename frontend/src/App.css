@@ -1,5 +1,69 @@
 .App {
   text-align: center;
+  font-family: 'Roboto', sans-serif;
 }
 
+/* HEADER */
 
+.nav-container {
+  position: relative;
+
+  width: 1440px;
+  margin: auto;
+
+  padding-top: 52px;
+}
+
+.nav-logo {
+  position: absolute;
+
+  left: 155px;
+  top: 30px;
+}
+
+.nav-item {
+  display: inline;
+
+  font-weight: 400;
+  font-size: 14px;
+  color: black;
+
+  padding: 0 20px;
+
+}
+
+/* FOOTER */
+
+.footer-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+
+  width: 1000px;
+  margin: 15px auto;
+}
+
+.footer-list-div {
+  display: inline-block;
+  width: 255px;
+
+  text-align: left;
+
+  padding: 0 15px;
+
+
+}
+
+.footer-list-header {
+  font-size: 16;
+  color: #fcfcfc;
+  font-weight: 400;
+
+  margin: 0 0 10px 0;
+}
+
+.footer-list-item {
+  font-size: 13px;
+  color: #72777F;
+
+  margin: 0 0 8px 0;
+}

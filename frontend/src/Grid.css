@@ -1,0 +1,19 @@
+.main-grid {
+    display: grid;
+    grid-template-rows: auto auto auto;
+}
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+#header {
+    height: 73px;
+}
+
+#footer {
+    height: 675px;
+
+    background-color: #282D33;
+}
