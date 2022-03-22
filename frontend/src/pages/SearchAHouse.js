@@ -10,19 +10,18 @@ import CovidNews from "../images/CovidNews.png"
 import CityNews from "../images/CityNews.png"
 
 const SearchAHouse = () => {
+  const [propertyType, setPropertyType] = useState("Any");
+  const [listingPrice, setListingPrice] = useState("$2000+");
+  const [numberOfBedrooms, setNumberOfBedrooms] = useState("Any");
+  const [numberOfBathrooms, setNumberOfBathrooms] = useState("Any");
+
+
 
   var priceSlider = document.getElementById("price-slider");
-  var output = document.getElementById("slider-value");
+  var dropdownOutput = document.getElementById("slider-value");
 
   function UpdateSlider() {
     output.innerHTML = "$" + priceSlider.value + "+";
-  }
-
-  function UpdateBedrooms(self) {
-    let numberOfBedrooms = document.getElementById("number-of-bedrooms");
-    let newValue = self.value;
-
-    numberOfBedrooms.innerHTML = newValue;
   }
 
   return (
@@ -52,42 +51,42 @@ const SearchAHouse = () => {
                 <div className="property-search-options-item">
                   <p className="property-search-option-title">Property type &#9660;</p>
                   <div className="property-drop-down property-drop-down-property-type">
-                    <button className="property-drop-down-property-type-option">Any</button>
-                    <button className="property-drop-down-property-type-option">House</button>
-                    <button className="property-drop-down-property-type-option">Apartment</button>
-                    <button className="property-drop-down-property-type-option">Unit</button>
-                    <button className="property-drop-down-property-type-option" id="no-bottom-margin">Townhouse</button>
+                    <button className="property-drop-down-property-type-option" onClick={() => setPropertyType("Any")}>Any</button>
+                    <button className="property-drop-down-property-type-option" onClick={() => setPropertyType("House")}>House</button>
+                    <button className="property-drop-down-property-type-option" onClick={() => setPropertyType("Apartment")}>Apartment</button>
+                    <button className="property-drop-down-property-type-option" onClick={() => setPropertyType("Unit")}>Unit</button>
+                    <button className="property-drop-down-property-type-option" id="no-bottom-margin" onClick={() => setPropertyType("Townhouse")}>Townhouse</button>
                   </div>
-                  <p className="property-search-option-selected">Any</p>
+                  <p className="property-search-option-selected">{propertyType}</p>
                 </div>
                 <div className="property-search-options-item">
                   <p className="property-search-option-title">Price &#9660;</p>
                   <div className="property-drop-down property-drop-down-price">
                     <p className="property-drop-down-price-text property-drop-down-price-item">Any</p>
                     <input className="property-drop-down-price-slider property-drop-down-price-item" type="range" min="2000" max="20000" value="11000" onInput={UpdateSlider} id="price-slider"></input>
-                    <p className="property-drop-down-price-text property-drop-down-price-item" id="slider-value">$2000+</p>
+                    <p className="property-drop-down-price-text property-drop-down-price-item" id="slider-value">{listingPrice}</p>
                   </div>
-                  <p className="property-search-option-selected">Any</p>
+                  <p className="property-search-option-selected" id="slider-value">{listingPrice}</p>
                 </div>
                 <div className="property-search-options-item">
                   <p className="property-search-option-title">Bedrooms &#9660;</p>
                   <div className="property-drop-down property-drop-down-bedbath">
-                    <button className="property-drop-down-bedbath-option" onClick={UpdateBedrooms(self)} value="Any">Any</button>
-                    <button className="property-drop-down-bedbath-option" onClick={UpdateBedrooms(self)} value="1">1</button>
-                    <button className="property-drop-down-bedbath-option" onClick={UpdateBedrooms(self)} value="2">2</button>
-                    <button className="property-drop-down-bedbath-option" onClick={UpdateBedrooms(self)} value="3">3+</button>
+                    <button className="property-drop-down-bedbath-option" onClick={() => setNumberOfBedrooms("Any")}>Any</button>
+                    <button className="property-drop-down-bedbath-option" onClick={() => setNumberOfBedrooms("1")}>1</button>
+                    <button className="property-drop-down-bedbath-option" onClick={() => setNumberOfBedrooms("2")}>2</button>
+                    <button className="property-drop-down-bedbath-option" onClick={() => setNumberOfBedrooms("3+")}>3+</button>
                   </div>
-                  <p className="property-search-option-selected" id="number-of-bedrooms">Any</p>
+                  <p className="property-search-option-selected">{numberOfBedrooms}</p>
                 </div>
                 <div className="property-search-options-item">
                   <p className="property-search-option-title">Bathrooms &#9660;</p>
                   <div className="property-drop-down property-drop-down-bedbath">
-                    <button className="property-drop-down-bedbath-option">Any</button>
-                    <button className="property-drop-down-bedbath-option">1</button>
-                    <button className="property-drop-down-bedbath-option">2</button>
-                    <button className="property-drop-down-bedbath-option">3+</button>
+                    <button className="property-drop-down-bedbath-option" onClick={() => setNumberOfBathrooms("Any")}>Any</button>
+                    <button className="property-drop-down-bedbath-option" onClick={() => setNumberOfBathrooms("1")}>1</button>
+                    <button className="property-drop-down-bedbath-option" onClick={() => setNumberOfBathrooms("2")}>2</button>
+                    <button className="property-drop-down-bedbath-option" onClick={() => setNumberOfBathrooms("3")}>3+</button>
                   </div>
-                  <p className="property-search-option-selected" id="number-of-bathrooms">Any</p>
+                  <p className="property-search-option-selected" id="number-of-bathrooms">{numberOfBathrooms}</p>
                 </div>
               </div>
             </div>
