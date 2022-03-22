@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import axios from 'axios';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
@@ -20,6 +21,50 @@ import apartment1 from '../images/apartment1.jpg';
 import './BookAView.css';
 
 function MyVerticallyCenteredModal(props) {
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
+  const [phone, setPhone] = useState('')
+  const [email, setEmail] = useState('')
+  const [bookingdate, setBookingdate] = useState('')
+  const [bookingtime, setBookingtime] = useState('')
+  const [suitable, setSuitable] = useState('')  
+
+  const reset = () => {
+    setFirstname("");
+    setLastname("");
+    setPhone("")
+    setEmail("");
+    setBookingdate("");
+    setBookingtime("");
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();   
+    createUser();    
+    props.onHide();
+  };
+
+  const createUser = async () => {
+    const baseURL = "http://localhost:5000/api/users";
+    // const baseURL = "/api/users";
+    const newUser = {
+      firstname,
+      lastname,
+      phone,
+      email,
+      bookingdate,
+      bookingtime,
+      suitable
+    };    
+    console.log(newUser);
+    try {
+      const response = await axios.post(baseURL, newUser);
+      console.log(response.data);     
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <Modal
       {...props}
@@ -82,28 +127,44 @@ function MyVerticallyCenteredModal(props) {
            </Row>            
            </Card.Body>
            <Card.Body>           
-           <Form>
+           <Form onSubmit={handleSubmit}>
               <Col>
                 <Card body className="bg-danger text-white">1. Enter your details</Card>  
               </Col>
               <Row className="mb-3">
                 <Form.Group as={Col} controlId="formGridFirstname">
                   <Form.Label>First name</Form.Label>
-                  <Form.Control type="text" placeholder="Enter first name" />
+                  <Form.Control 
+                    type="text" 
+                    onChange={(e) => setFirstname(e.target.value)} 
+                    value={firstname}
+                    placeholder="Enter first name" />
                 </Form.Group>
                 <Form.Group as={Col} controlId="formGridLastname">
                   <Form.Label>Last name</Form.Label>
-                  <Form.Control type="text" placeholder="Enter last name" />
+                  <Form.Control 
+                    type="text" 
+                    onChange={(e) => setLastname(e.target.value)} 
+                    value={lastname}
+                    placeholder="Enter last name" />
                 </Form.Group>
                 </Row>
                 <Row className="mb-3">
                 <Form.Group as={Col} controlId="formGridPhone">
                   <Form.Label>Phone</Form.Label>
-                  <Form.Control type="text" placeholder="Enter phone" />
+                  <Form.Control 
+                    type="text" 
+                    onChange={(e) => setPhone(e.target.value)} 
+                    value={phone}
+                    placeholder="Enter phone" />
                 </Form.Group>
                 <Form.Group as={Col} controlId="formGridEmail">
                   <Form.Label>Email</Form.Label>
-                  <Form.Control type="email" placeholder="Enter email" />
+                  <Form.Control 
+                  type="email" 
+                  placeholder="Enter email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}  />
                 </Form.Group>
                 </Row>
                 <Col>
@@ -112,15 +173,26 @@ function MyVerticallyCenteredModal(props) {
               <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridBookingdate">
                   <Form.Label>Booking date</Form.Label>
-                  <Form.Control type="date" placeholder="xxx" />
+                  <Form.Control 
+                    type="date" 
+                    placeholder="xxx"
+                    onChange={(e) => setBookingdate(e.target.value)}
+                    value={bookingdate}  />
                 </Form.Group>
                 <Form.Group as={Col} controlId="formGridBookingtime">
                   <Form.Label>Booking time</Form.Label>
-                  <Form.Control type="text" placeholder="xxx" />
+                  <Form.Control 
+                    type="text" 
+                    placeholder="xxx"
+                    onChange={(e) => setBookingtime(e.target.value)} 
+                    value={bookingtime}
+                   />
                 </Form.Group>
               </Row>
               <Form.Group className="mb-3" id="formGridCheckbox1">
-                <Form.Check type="checkbox" label="Viewing times not suitable?" />
+                <Form.Check 
+                  type="checkbox" 
+                  label="Viewing times not suitable?" />
               </Form.Group>            
             <Col>
                 <Card body className="bg-danger text-white">COVID-19 Policy</Card> 
@@ -138,12 +210,13 @@ function MyVerticallyCenteredModal(props) {
                 </Card> 
                 </Container>
             </Col>
+            {/* <Button className="me-2 bg-success text-white" onClick={props.onHide}>Cancel</Button> */}
+            <Button className="bg-success text-center text-white" onClick={handleSubmit}>Submit</Button>
             </Form>
            </Card.Body>
          </Card>
       </Modal.Body>
-      <Modal.Footer >
-        <Button className="bg-success text-white" type="submit" onClick={props.onHide}>Submit</Button>
+      <Modal.Footer >        
       </Modal.Footer>
     </Modal>
   );
