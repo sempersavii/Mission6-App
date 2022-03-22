@@ -15,13 +15,11 @@ const SearchAHouse = () => {
   const [numberOfBedrooms, setNumberOfBedrooms] = useState("Any");
   const [numberOfBathrooms, setNumberOfBathrooms] = useState("Any");
 
+  const [sliderValue, setSliderValue] = useState(2000);
 
-
-  var priceSlider = document.getElementById("price-slider");
-  var dropdownOutput = document.getElementById("slider-value");
-
-  function UpdateSlider() {
-    output.innerHTML = "$" + priceSlider.value + "+";
+  function UpdateSlider(e) {
+    setListingPrice("$" + e.target.value + "+");
+    setSliderValue(e.target.value)
   }
 
   return (
@@ -63,7 +61,11 @@ const SearchAHouse = () => {
                   <p className="property-search-option-title">Price &#9660;</p>
                   <div className="property-drop-down property-drop-down-price">
                     <p className="property-drop-down-price-text property-drop-down-price-item">Any</p>
-                    <input className="property-drop-down-price-slider property-drop-down-price-item" type="range" min="2000" max="20000" value="11000" onInput={UpdateSlider} id="price-slider"></input>
+                    <input className="property-drop-down-price-slider property-drop-down-price-item" type="range" id="volume" name="volume" min="2000" max="20000" value={sliderValue} onInput={UpdateSlider}/>
+                    
+                    {/* <input type="range" min="2000" max="20000" value="11000" /> */}
+                    {/*  */}
+                    {/*  id="price-slider" */}
                     <p className="property-drop-down-price-text property-drop-down-price-item" id="slider-value">{listingPrice}</p>
                   </div>
                   <p className="property-search-option-selected" id="slider-value">{listingPrice}</p>

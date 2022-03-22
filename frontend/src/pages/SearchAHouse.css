@@ -161,18 +161,17 @@
     font-weight: bold;
 }
 
-.property-drop-down-price-slider {
+.property-drop-down-price-slider[type=range] {
     -webkit-appearance: none;
     width: 135px;
     height: 4px;
     background: white;
     outline: 1px solid #C4C4C4;
-    opacity: 1;
 
     margin: 20px 0;
 }
 
-.property-drop-down-price-slider::-webkit-slider-thumb {
+.property-drop-down-price-slider[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 12px;
