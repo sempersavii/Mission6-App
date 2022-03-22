@@ -182,7 +182,7 @@ function MyVerticallyCenteredModal(props) {
                 <Form.Group as={Col} controlId="formGridBookingtime">
                   <Form.Label>Booking time</Form.Label>
                   <Form.Control 
-                    type="text" 
+                    type="time" 
                     placeholder="xxx"
                     onChange={(e) => setBookingtime(e.target.value)} 
                     value={bookingtime}
