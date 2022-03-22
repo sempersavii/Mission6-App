@@ -11,6 +11,20 @@ import CityNews from "../images/CityNews.png"
 
 const SearchAHouse = () => {
 
+  var priceSlider = document.getElementById("price-slider");
+  var output = document.getElementById("slider-value");
+
+  function UpdateSlider() {
+    output.innerHTML = "$" + priceSlider.value + "+";
+  }
+
+  function UpdateBedrooms(self) {
+    let numberOfBedrooms = document.getElementById("number-of-bedrooms");
+    let newValue = self.value;
+
+    numberOfBedrooms.innerHTML = newValue;
+  }
+
   return (
     <>
       <div className="main-content-grid">
@@ -38,11 +52,11 @@ const SearchAHouse = () => {
                 <div className="property-search-options-item">
                   <p className="property-search-option-title">Property type &#9660;</p>
                   <div className="property-drop-down property-drop-down-property-type">
-                    <p className="property-drop-down-property-type-option">Any</p>
-                    <p className="property-drop-down-property-type-option">House</p>
-                    <p className="property-drop-down-property-type-option">Apartment</p>
-                    <p className="property-drop-down-property-type-option">Unit</p>
-                    <p className="property-drop-down-property-type-option" id="no-bottom-margin">Townhouse</p>
+                    <button className="property-drop-down-property-type-option">Any</button>
+                    <button className="property-drop-down-property-type-option">House</button>
+                    <button className="property-drop-down-property-type-option">Apartment</button>
+                    <button className="property-drop-down-property-type-option">Unit</button>
+                    <button className="property-drop-down-property-type-option" id="no-bottom-margin">Townhouse</button>
                   </div>
                   <p className="property-search-option-selected">Any</p>
                 </div>
@@ -50,18 +64,30 @@ const SearchAHouse = () => {
                   <p className="property-search-option-title">Price &#9660;</p>
                   <div className="property-drop-down property-drop-down-price">
                     <p className="property-drop-down-price-text property-drop-down-price-item">Any</p>
-                    <input className="property-drop-down-price-slider property-drop-down-price-item" type="range" min="2000" max="20000" value="11000"></input>
-                    <p className="property-drop-down-price-text property-drop-down-price-item">$2000+</p>
+                    <input className="property-drop-down-price-slider property-drop-down-price-item" type="range" min="2000" max="20000" value="11000" onInput={UpdateSlider} id="price-slider"></input>
+                    <p className="property-drop-down-price-text property-drop-down-price-item" id="slider-value">$2000+</p>
                   </div>
                   <p className="property-search-option-selected">Any</p>
                 </div>
                 <div className="property-search-options-item">
                   <p className="property-search-option-title">Bedrooms &#9660;</p>
-                  <p className="property-search-option-selected">Any</p>
+                  <div className="property-drop-down property-drop-down-bedbath">
+                    <button className="property-drop-down-bedbath-option" onClick={UpdateBedrooms(self)} value="Any">Any</button>
+                    <button className="property-drop-down-bedbath-option" onClick={UpdateBedrooms(self)} value="1">1</button>
+                    <button className="property-drop-down-bedbath-option" onClick={UpdateBedrooms(self)} value="2">2</button>
+                    <button className="property-drop-down-bedbath-option" onClick={UpdateBedrooms(self)} value="3">3+</button>
+                  </div>
+                  <p className="property-search-option-selected" id="number-of-bedrooms">Any</p>
                 </div>
                 <div className="property-search-options-item">
                   <p className="property-search-option-title">Bathrooms &#9660;</p>
-                  <p className="property-search-option-selected">Any</p>
+                  <div className="property-drop-down property-drop-down-bedbath">
+                    <button className="property-drop-down-bedbath-option">Any</button>
+                    <button className="property-drop-down-bedbath-option">1</button>
+                    <button className="property-drop-down-bedbath-option">2</button>
+                    <button className="property-drop-down-bedbath-option">3+</button>
+                  </div>
+                  <p className="property-search-option-selected" id="number-of-bathrooms">Any</p>
                 </div>
               </div>
             </div>
