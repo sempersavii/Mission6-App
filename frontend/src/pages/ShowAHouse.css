@@ -1,9 +1,79 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+#content-box {
+  margin: 0 auto;
+  width: 60%;
+}
+
+#content-box .horizontal {
+  text-align: left;
+}
+
+.column {
+  width: 50%;
+  display: table-cell;
+}
+
+.main-image {
+  display: block;
+  margin: auto;
+  width: 710px;
+  height: 474px;
+}
+
+.sub-images {
+  display: grid;
+  column-gap: 18px;
+}
+
+.sub-image {
+  width: 57px;
+  height: 41px;
+}
+
+.select-img {
+  text-align: center;
+}
+
+.select-img {
+  width: 27px;
+}
+
+.option-img {
+  width: 20px;
+}
+
+.social-img {
+  width: 13px;
+}
+
 .agentId {
   background-color: #C32848;
 }
 
-.btn-primary-outline {
+.button,
+.button-secondary {
+  width: 115px;
+  height: 34px;
+  padding: 10px 24px;
+  font-size: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #76D449;
+  border-color: #76D449;
+  color: white;
+  display: inline-block;
+}
+
+.button-secondary {
+  background-color: white;
+  color: #C32848;
+  border-color: #C32848;
+}
+
+.return-search {
+  float: right;
+  padding: 10px 24px;
   background-color: transparent;
+  border: none;
 }
