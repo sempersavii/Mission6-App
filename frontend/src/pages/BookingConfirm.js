@@ -1,4 +1,3 @@
-
 import {useState} from 'react';
 import axios from 'axios';
 import Card from 'react-bootstrap/Card';
@@ -10,8 +9,6 @@ import Container from 'react-bootstrap/Container';
 import './BookAView.css';
 
 function MyVerticallyCenteredModal(props) {
-  
-
 
   return (
     <Modal
@@ -49,8 +46,10 @@ function MyVerticallyCenteredModal(props) {
   );
 }
 
-const BookingConfirm = () => {
+const BookingConfirm = (props) => {
   const [modalShow, setModalShow] = useState(true);
+
+  console.log()
 
   return (
     <>

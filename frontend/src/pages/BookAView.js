@@ -237,13 +237,13 @@ function MyVerticallyCenteredModal(props) {
 }
 
 const BookAView = () => {
-  const [modalShow, setModalShow] = useState(false);
+  const [modalShow, setModalShow] = useState(true);
 
   return (
     <>
-      <Button variant="primary" onClick={() => setModalShow(true)}>
+      {/* <Button variant="primary" onClick={() => setModalShow(true)}>
         Book a View
-      </Button>
+      </Button> */}
 
       <MyVerticallyCenteredModal
         show={modalShow}
