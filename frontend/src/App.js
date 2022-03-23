@@ -12,6 +12,7 @@ import headLogo from "./images/main-logo.png"
 const App = () => {
   return (
     <div className="App main-grid">
+      {/* <Navbar /> */}
       <div className="grid-item" id="header">
         <div className="nav-container">
           <img src={headLogo} className="nav-logo"/>
@@ -25,16 +26,15 @@ const App = () => {
       </div>
       <div className="grid-item" id="main-content">
         <BrowserRouter>
-          {/* <Navbar /> */}
           <Routes>
           <Route path="/" element={<SearchAHouse />} />
           <Route path="/showahouse" element={<ShowAHouse />} />
           <Route path="/bookaview" element={<BookAView />} />
           <Route path="/confirm" element={<BookingConfirm />} />
           </Routes>
-          {/* <Footer /> */}
         </BrowserRouter>
       </div>
+      {/* <Footer /> */}
       <div className="grid-item" id="footer">
         <div className="footer-container">
           <div className="footer-list-div">
