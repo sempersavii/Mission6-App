@@ -1,0 +1,93 @@
+.listing-div {
+    width: 223px;
+    height: 256px;
+
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+
+    text-align: left;
+}
+
+.listing-image {
+    width: 223px;
+    height: 172px;
+
+    border-radius: 5px 5px 0 0;
+}
+
+.listing-address {
+    width: 162px;
+
+    font-weight: bold;
+    font-size: 12px;
+    color: #C32848;
+
+    margin: 5px 0 0 8px;
+}
+
+.listing-price {
+    font-size: 11px;
+    color: #797979;
+
+    margin: 4px 0 0 8px;
+}
+
+.listing-features {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+}
+
+.listing-bedrooms-icon {
+    float: left;
+    width: 15px;
+    height: 12px;
+
+    margin: 2.5px 10px 0 8px;
+}
+
+.listing-bedrooms {
+    font-size: 11px;
+    color: black;
+}
+
+.listing-bathrooms-icon {
+    float: left;
+    width: 15px;
+    height: 12px;
+
+    margin: 2.5px 10px 0 0;
+}
+
+.listing-bathrooms {
+    font-size: 11px;
+    color: black;
+}
+
+.listing-garage-icon {
+    float: left;
+    width: 15px;
+    height: 12px;
+
+    margin: 2.5px 10px 0 0;
+}
+
+.listing-garage {
+    font-size: 11px;
+    color: black;
+}
+
+.listing-pets {
+    width: 10px;
+    height: 12px;
+
+    margin-bottom: 9px;
+}
+
+.listing-type {
+    font-size: 11px;
+    color: black;
+
+    float: right;
+
+    margin: 0.5px 9px 0 0;
+}

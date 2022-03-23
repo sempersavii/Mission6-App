@@ -1,0 +1,14 @@
+.main-grid {
+    display: grid;
+    grid-template-rows: auto auto auto;
+}
+
+#header {
+    height: 73px;
+}
+
+#footer {
+    height: 675px;
+
+    background-color: #282D33;
+}
