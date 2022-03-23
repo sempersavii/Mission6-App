@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./RefineModal.css";
 
 function RefineModal() {
+    
     const [modalSliderValue, setModalSliderValue] = useState(2000);
     const [modalListingPrice, setModalListingPrice] = useState("$2000+");
     
