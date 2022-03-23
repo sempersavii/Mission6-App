@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 
 import Listing from "../components/SmallListing"
+import Modal from "../components/RefineModal"
 
 import "./SearchAHouse.css";
 
@@ -22,8 +23,16 @@ const SearchAHouse = () => {
     setSliderValue(e.target.value)
   }
 
+  function ShowModal() {
+    const modalElement = document.getElementById("refine-modal")
+    modalElement.style.display = "block";
+  }
+
   return (
     <>
+      <div id="refine-modal" className="modal">
+        <Modal />
+      </div>
       <div className="main-content-grid">
         <div className="main-content-grid-item" id="property-listings">
           <p className="property-listings-title">Property Listings</p>
@@ -37,7 +46,7 @@ const SearchAHouse = () => {
             <div className="property-search-div-grid-item-2">
               <div className="property-search-options-container">
                 <div className="property-search-options-item">
-                  <button className="property-search-refine-button">Refine &#9660;</button>
+                  <button className="property-search-refine-button" onClick={ShowModal}>Refine &#9660;</button>
                 </div>
                 <div className="property-search-options-item">
                   <p className="property-search-option-title">Suburb &#9660;</p>
@@ -62,10 +71,6 @@ const SearchAHouse = () => {
                   <div className="property-drop-down property-drop-down-price">
                     <p className="property-drop-down-price-text property-drop-down-price-item">Any</p>
                     <input className="property-drop-down-price-slider property-drop-down-price-item" type="range" id="volume" name="volume" min="2000" max="20000" value={sliderValue} onInput={UpdateSlider}/>
-                    
-                    {/* <input type="range" min="2000" max="20000" value="11000" /> */}
-                    {/*  */}
-                    {/*  id="price-slider" */}
                     <p className="property-drop-down-price-text property-drop-down-price-item" id="slider-value">{listingPrice}</p>
                   </div>
                   <p className="property-search-option-selected" id="slider-value">{listingPrice}</p>
@@ -86,7 +91,7 @@ const SearchAHouse = () => {
                     <button className="property-drop-down-bedbath-option" onClick={() => setNumberOfBathrooms("Any")}>Any</button>
                     <button className="property-drop-down-bedbath-option" onClick={() => setNumberOfBathrooms("1")}>1</button>
                     <button className="property-drop-down-bedbath-option" onClick={() => setNumberOfBathrooms("2")}>2</button>
-                    <button className="property-drop-down-bedbath-option" onClick={() => setNumberOfBathrooms("3")}>3+</button>
+                    <button className="property-drop-down-bedbath-option" onClick={() => setNumberOfBathrooms("3+")}>3+</button>
                   </div>
                   <p className="property-search-option-selected" id="number-of-bathrooms">{numberOfBathrooms}</p>
                 </div>

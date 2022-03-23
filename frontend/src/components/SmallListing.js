@@ -7,7 +7,7 @@ import bathroom from "../images/Bathtub.png"
 import car from "../images/Car.png"
 import dog from "../images/No Animals.png"
 
-function SmallListing() {
+function SmallListing() {    
     return (
         <>
             <div className="listing-div">
