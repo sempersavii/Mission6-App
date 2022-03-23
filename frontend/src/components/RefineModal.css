@@ -1,0 +1,267 @@
+.header {grid-area:header;}
+.price {grid-area:price;}
+.property-type {grid-area:property-type;}
+.suburb {grid-area:suburb;}
+.bedrooms {grid-area:bedrooms;}
+.carparks {grid-area:carparks;}
+.bathrooms {grid-area:bathrooms;}
+.pets {grid-area:pets;}
+.sort {grid-area:sort;}
+.search {grid-area:search;}
+
+/* Modal */
+
+#bootstrap-overrides {
+    display: grid;
+    grid-template-areas: 
+    'header header'
+    'price price'
+    'property-type property-type'
+    'suburb suburb'
+    'bedrooms carparks'
+    'bathrooms pets'
+    'sort sort'
+    'search search';
+}
+
+.modal-content {
+    max-width: 549px;
+    max-height: 897px;
+
+    margin: 319px auto;
+
+    background-color: #fefefe;
+    border-radius: 5px;
+}
+
+.modal-grid-item {
+    background-color: #F3F3F3;
+    font-size: 30px;
+    text-align: left;
+
+    display: inline-block;
+}
+
+.modal-subtitle {
+    font-size: 14px;
+    color: #262626;
+    font-weight: bold;
+    text-align: left;
+
+    margin: 25px 0 0 25px;
+}
+
+/* Section 1 */
+
+.header {
+    position: relative;
+    height: 64px;
+
+    background-color: white;
+    border-radius: 10px 10px 0 0;
+
+}
+
+.refined-search-title {
+    text-align: left;
+    font-weight: bold;
+    font-size: 24px;
+    color: #C32848;
+
+    margin: 18px 25px;
+}
+
+.close-button {
+    position: absolute;
+
+    top: 20px;
+    right: 24px;
+    
+    font-size: 20px;
+    color: #C32848;
+
+    padding: 0 10px;
+
+    border: 3px solid #C32848;
+
+    cursor: pointer;
+}
+
+/* Section 2 */
+
+.modal-price-item {
+    display: inline;
+
+    margin: 0 15px;
+}
+
+.modal-price-text {
+    font-size: 14px;
+    font-weight: bold;
+    color: #C32848;
+}
+
+.modal-price-slider[type=range] {
+    -webkit-appearance: none;
+    width: 394px;
+    height: 4px;
+    background: white;
+    outline: 1px solid #C4C4C4;
+
+    margin: 20px 0;
+}
+
+.modal-price-slider[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #C32848;
+    cursor: pointer;
+}
+
+/* Section 3 */
+
+.modal-property-type-buttons-div {
+    text-align: center;
+}
+
+.modal-property-type-button {
+    display: inline-block;
+
+    width: 91px;
+    height: 34px;
+
+    margin: 0 5px;
+
+    border: 1px solid #c4c4c4;
+    background-color: white;
+    border-radius: 5px;
+
+    font-size: 14px;
+}
+
+.active-property-type-button {
+    color: white;
+    background-color: #C32848;
+}
+
+/* Section 4 */
+
+.modal-suburb-searchbar {
+    width: 216px;
+    height: 23px;
+    
+    font-size: 14px;
+
+    border: 1px solid #C4C4C4;
+    border-radius: 5px;
+}
+
+.modal-suburb-item {
+    display: inline-block;
+
+    margin-right: 35px;
+}
+
+/* Section 5 */
+
+
+.modal-buttons-options-div {
+    margin-left: 20px;
+}
+
+.modal-buttons-option {
+    width: 40px;
+    height: 34px;
+
+    font-size: 14px;
+
+    background-color: white;
+    border: 1px solid #C4C4C4;
+    border-radius: 5px;
+
+    margin: 0 5px;
+}
+
+.modal-buttons-option-selected {
+    color: white;
+    background-color: #C32848;
+}
+
+/* Section 8 */
+
+.modal-pets-buttons-option {
+    width: 113px;
+    height: 34px;
+
+    font-size: 14px;
+
+    background-color: white;
+    border: 1px solid #C4C4C4;
+    border-radius: 5px;
+
+    margin: 57px 5px 0;
+}
+
+/* Section 9 */
+
+.modal-sort-buttons-options-div {
+    margin-left: 10px;
+}
+
+.modal-sort-buttons-option {
+    width: 102px;
+    height: 34px;
+
+    font-size: 14px;
+
+    background-color: white;
+    border: 1px solid #C4C4C4;
+    border-radius: 5px;
+
+    margin: 0 13.5px;
+}
+
+.modal-sort-selected-buttons-option {
+    background-color: #C32848;
+    color: white;
+}
+
+/* Section 10 */
+
+.search {
+    padding-bottom: 17px;
+    border-radius: 0 0 10px 10px;
+}
+
+.modal-bottom-div-item {
+    display: inline-block;
+}
+
+.modal-searchbar {
+    width: 348px;
+    height: 28px;
+
+    border: 1px solid #C4C4C4;
+    border-radius: 5px;
+
+    font-size: 14px;
+
+    margin-left: 25px;
+    margin-right: 42px;
+}
+
+.modal-search-button {
+    width: 101px;
+    height: 29px;
+
+    background-color: #76D449;
+
+    border: none;
+    border-radius: 5px;
+
+    font-size: 14px;
+    color: white;
+}
