@@ -2,6 +2,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import SearchAHouse from './pages/SearchAHouse';
 import ShowAHouse from './pages/ShowAHouse';
 import BookAView from './pages/BookAView';
+import BookingConfirm from './pages/BookingConfirm';
 
 import './App.css';
 import './Grid.css';
@@ -29,6 +30,7 @@ const App = () => {
           <Route path="/" element={<SearchAHouse />} />
           <Route path="/showahouse" element={<ShowAHouse />} />
           <Route path="/bookaview" element={<BookAView />} />
+          <Route path="/confirm" element={<BookingConfirm />} />
           </Routes>
           {/* <Footer /> */}
         </BrowserRouter>

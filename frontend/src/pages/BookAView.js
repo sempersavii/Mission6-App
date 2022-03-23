@@ -1,3 +1,4 @@
+import {useNavigate} from 'react-router-dom';
 import {useState} from 'react';
 import axios from 'axios';
 import Card from 'react-bootstrap/Card';
@@ -27,8 +28,10 @@ function MyVerticallyCenteredModal(props) {
   const [email, setEmail] = useState('')
   const [bookingdate, setBookingdate] = useState('')
   const [bookingtime, setBookingtime] = useState('')
-  const [suitable, setSuitable] = useState('')  
+  const [suitable, setSuitable] = useState('') 
 
+  const navigate = useNavigate();
+  
   const reset = () => {
     setFirstname("");
     setLastname("");
@@ -42,7 +45,10 @@ function MyVerticallyCenteredModal(props) {
     e.preventDefault();   
     createUser();    
     props.onHide();
+    navigate('/confirm');
   };
+
+  let savedUserId = "";
 
   const createUser = async () => {
     const baseURL = "http://localhost:5000/api/users";
@@ -59,7 +65,11 @@ function MyVerticallyCenteredModal(props) {
     console.log(newUser);
     try {
       const response = await axios.post(baseURL, newUser);
-      console.log(response.data);     
+      const saveduser = response.data;
+      console.log(saveduser); 
+      console.log(saveduser._id); 
+      savedUserId = saveduser._id;
+      console.log(savedUserId);
     } catch (err) {
       console.log(err);
     }
@@ -211,7 +221,11 @@ function MyVerticallyCenteredModal(props) {
                 </Container>
             </Col>
             {/* <Button className="me-2 bg-success text-white" onClick={props.onHide}>Cancel</Button> */}
-            <Button className="bg-success text-center text-white" onClick={handleSubmit}>Submit</Button>
+            <Button className="bg-success text-center text-white" 
+              onClick={handleSubmit}
+              savedUserId={savedUserId}
+            >Submit
+            </Button>
             </Form>
            </Card.Body>
          </Card>
