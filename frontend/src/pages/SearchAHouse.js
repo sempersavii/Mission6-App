@@ -173,17 +173,3 @@ const SearchAHouse = () => {
 }
 
 export default SearchAHouse;
-
-
-// const SearchAHouse = () => {
-//     const [houses, setHouses] = useState([]);
-
-//     useEffect(() => {
-//       const fetchHouses = async () => {
-//           const {data} = await axios.get('http://localhost:5000/api/houses');
-//           setHouses(data);
-//       };
-//       fetchHouses();
-//   }, []);
-// }
-  
