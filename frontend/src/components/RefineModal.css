@@ -192,7 +192,9 @@
 
 /* Section 8 */
 
+
 .modal-toggle-buttons {
+
     width: 113px;
     height: 34px;
 
@@ -204,6 +206,7 @@
 
     margin: 57px 5px 0;
 }
+
 
 .modal-toggle-buttons-on {
     color: white;

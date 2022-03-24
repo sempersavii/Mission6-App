@@ -12,7 +12,7 @@ const houseSchema = mongoose.Schema(
         bathrooms: Number,
         bedrooms: Number,
         allowPets: String,
-        carPark: String,
+        carPark: Number,
         nearGrocery: String,
         nearParks: String
     }, {

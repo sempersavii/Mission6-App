@@ -8,9 +8,10 @@ const userSchema = mongoose.Schema(
         email: String,
         bookingdate: String,
         bookingtime: String,
-        suitable: String
+        suitable: String,
+        address: String
     }, {
-    timestamps: true
+        timestamps: true
     }
 );
 

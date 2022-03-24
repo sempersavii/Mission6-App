@@ -9,6 +9,7 @@ import car from "../images/Car.png"
 import dog from "../images/No Animals.png"
 
 function SmallListing(props) {    
+
     return (
         <>
             <Link to="/showahouse" style={{ textDecoration: 'none' }}>

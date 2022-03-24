@@ -43,7 +43,8 @@ function MyVerticallyCenteredModal(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();   
-    createUser();    
+    createUser();  
+    reset();  
     props.onHide();
     navigate('/confirm');
   };
@@ -52,7 +53,7 @@ function MyVerticallyCenteredModal(props) {
 
   const createUser = async () => {
     const baseURL = "http://localhost:5000/api/users";
-    // const baseURL = "/api/users";
+   
     const newUser = {
       firstname,
       lastname,
@@ -67,16 +68,18 @@ function MyVerticallyCenteredModal(props) {
       const response = await axios.post(baseURL, newUser);
       const saveduser = response.data;
       console.log(saveduser); 
-      console.log(saveduser._id); 
-      savedUserId = saveduser._id;
-      console.log(savedUserId);
+
+      // console.log(saveduser._id); 
+      // savedUserId = saveduser._id;
+      // console.log(savedUserId);
+
     } catch (err) {
       console.log(err);
     }
   };
 
   return (
-    <Modal
+    <Modal style={{height: "100%"}}
       {...props}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
@@ -86,11 +89,11 @@ function MyVerticallyCenteredModal(props) {
       </Modal.Header>
       <Modal.Body>
         <Card>
-           <Card.Header className='text-center bg-danger text-white'>
+           <Card.Header className='text-center bg-white'>
            <p> You are booking a viewing for: </p>
-           <p> 652 Mt Road, Mt Eden </p>
+           <p className='fw-bold'> 652 Mt Road, Mt Eden </p>
            </Card.Header>
-           <Card.Body>
+           <Card.Body className='bg-light'>
            <Row >
              <Col>
             <Image fluid src={apartment1} alt="house pic" />
@@ -98,6 +101,7 @@ function MyVerticallyCenteredModal(props) {
              <Col>
              <p>Available</p>
              <p>Price</p>
+             <a href="#">View property</a>
              <Col>
                <Image src={Bed} alt="bed" /> 
                <Image src={Bathtub} alt="bathtub" fluid />
@@ -111,7 +115,7 @@ function MyVerticallyCenteredModal(props) {
            <Row > 
            <Col>           
              <Col >
-             <Card body className="bg-danger text-white">Instructions to view a property</Card>  
+             <Card body style={{backgroundColor: "#C32848"}} className="text-white">Instructions to view a property</Card>  
              </Col>          
              <Col >
                <Image src={First} alt="num1" />
@@ -139,7 +143,7 @@ function MyVerticallyCenteredModal(props) {
            <Card.Body>           
            <Form onSubmit={handleSubmit}>
               <Col>
-                <Card body className="bg-danger text-white">1. Enter your details</Card>  
+                <Card body style={{backgroundColor: "#C32848"}} className="text-white">1. Enter your details</Card>  
               </Col>
               <Row className="mb-3">
                 <Form.Group as={Col} controlId="formGridFirstname">
@@ -178,7 +182,7 @@ function MyVerticallyCenteredModal(props) {
                 </Form.Group>
                 </Row>
                 <Col>
-                <Card body className="bg-danger text-white">2. Viewing times</Card>  
+                <Card body style={{backgroundColor: "#C32848"}} className="text-white">2. Viewing times</Card>  
                 </Col>
               <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridBookingdate">
@@ -205,27 +209,31 @@ function MyVerticallyCenteredModal(props) {
                   label="Viewing times not suitable?" />
               </Form.Group>            
             <Col>
-                <Card body className="bg-danger text-white">COVID-19 Policy</Card> 
+                <Card body style={{backgroundColor: "#C32848"}} className="text-white">COVID-19 Policy</Card> 
                 <Container className='my-3'>
                 <Card>
                   <Card.Header className="bg-secondary text-white">COVID-19 Policy for viewing</Card.Header>
                   <Card.Body>
                     <Card.Text>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet itaque doloribus aperiam in error laboriosam similique consequatur totam mollitia obcaecati.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet itaque doloribus aperiam in error laboriosam similique consequatur totam mollitia obcaecati. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus nesciunt nostrum quos corporis, consectetur perferendis ab officia. Iusto, a. Quae repudiandae voluptatibus libero itaque officia tempora ratione a cupiditate reiciendis.
                     </Card.Text>
                   </Card.Body>
                   <Form.Group className="mb-3" id="formGridCheckbox2">
-                <Form.Check type="checkbox" label="Agree with the COVID-19 Policy" />
+                  <div className='d-flex justify-content-center'>
+                <Form.Check className='fw-bold' type="checkbox" label="Agree with the COVID-19 Policy" /></div>
               </Form.Group>              
                 </Card> 
                 </Container>
             </Col>
             {/* <Button className="me-2 bg-success text-white" onClick={props.onHide}>Cancel</Button> */}
-            <Button className="bg-success text-center text-white" 
+
+            <div className='d-flex justify-content-center'>
+            <Button style={{backgroundColor: "#76D449"}} className="text-center text-white" 
               onClick={handleSubmit}
-              savedUserId={savedUserId}
             >Submit
             </Button>
+            </div>
+
             </Form>
            </Card.Body>
          </Card>
@@ -237,13 +245,13 @@ function MyVerticallyCenteredModal(props) {
 }
 
 const BookAView = () => {
-  const [modalShow, setModalShow] = useState(false);
+  const [modalShow, setModalShow] = useState(true);
 
   return (
     <>
-      <Button variant="primary" onClick={() => setModalShow(true)}>
+      {/* <Button variant="primary" onClick={() => setModalShow(true)}>
         Book a View
-      </Button>
+      </Button> */}
 
       <MyVerticallyCenteredModal
         show={modalShow}

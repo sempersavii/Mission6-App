@@ -60,6 +60,7 @@ const SearchAHouse = () => {
     modalElement.style.display = "block";
   }
 
+
   function SearchListings() {
     let newFeaturedListings = listings;
     
