@@ -11,7 +11,7 @@ import dog from "../images/No Animals.png"
 function SmallListing() {    
     return (
         <>
-            <Link to="/showahouse">
+            <Link to="/showahouse" style={{ textDecoration: 'none' }}>
                 <div className="listing-div">
                     <img src={placeholderImage} className="listing-image" />
                     <p className="listing-address">38K Horeka Avenue, Mount Eden, 1024</p>
