@@ -9,6 +9,7 @@ import Button from 'react-bootstrap/Button';
 import './BookAView.css';
 
 function MyVerticallyCenteredModal(props) {
+
   const [user, setUser] = useState({});
 
   useEffect(() => {
@@ -23,7 +24,6 @@ function MyVerticallyCenteredModal(props) {
     };
     fetchUser();
   }, []);
-
 
   return (
     <Modal
@@ -41,10 +41,12 @@ function MyVerticallyCenteredModal(props) {
            <p> Your viewing has been confirmed! </p>
            </Card.Header>
            <Card.Body className='bg-light items-align-center' >
+
            {/* <Row className='text-center mt-4 mb-5' > */}
            <Row className='text-center' >
 
              <Col>
+
              <p>Date: {user.bookingdate}</p>
              <p>Time: {user.bookingtime}</p>
              <p>Address: 652 Mt Road, Mt Eden</p>
@@ -66,6 +68,7 @@ function MyVerticallyCenteredModal(props) {
 }
 
 const BookingConfirm = (props) => {
+
   const [modalShow, setModalShow] = useState(true);
 
   return (

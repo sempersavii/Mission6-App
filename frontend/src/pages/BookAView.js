@@ -49,6 +49,8 @@ function MyVerticallyCenteredModal(props) {
     navigate('/confirm');
   };
 
+  let savedUserId = "";
+
   const createUser = async () => {
     const baseURL = "http://localhost:5000/api/users";
    
@@ -66,9 +68,11 @@ function MyVerticallyCenteredModal(props) {
       const response = await axios.post(baseURL, newUser);
       const saveduser = response.data;
       console.log(saveduser); 
+
       // console.log(saveduser._id); 
       // savedUserId = saveduser._id;
       // console.log(savedUserId);
+
     } catch (err) {
       console.log(err);
     }
@@ -222,12 +226,14 @@ function MyVerticallyCenteredModal(props) {
                 </Container>
             </Col>
             {/* <Button className="me-2 bg-success text-white" onClick={props.onHide}>Cancel</Button> */}
+
             <div className='d-flex justify-content-center'>
             <Button style={{backgroundColor: "#76D449"}} className="text-center text-white" 
               onClick={handleSubmit}
             >Submit
             </Button>
             </div>
+
             </Form>
            </Card.Body>
          </Card>
