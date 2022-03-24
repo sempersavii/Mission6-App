@@ -75,7 +75,7 @@ function MyVerticallyCenteredModal(props) {
   };
 
   return (
-    <Modal style={{height: "100%"}}
+    <Modal 
       {...props}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
@@ -243,6 +243,7 @@ const BookAView = () => {
 
   return (
     <>
+    <Container >
       {/* <Button variant="primary" onClick={() => setModalShow(true)}>
         Book a View
       </Button> */}
@@ -251,6 +252,7 @@ const BookAView = () => {
         show={modalShow}
         onHide={() => setModalShow(false)}
       />
+      </Container>
     </>
   );
 }
