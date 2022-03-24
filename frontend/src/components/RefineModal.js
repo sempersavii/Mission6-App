@@ -113,7 +113,7 @@ function RefineModal() {
         }
     }
 
-    function SearchListings() {
+    function SearchModalListings() {
         console.log(modalSeachQuery);
     }
 
@@ -189,7 +189,7 @@ function RefineModal() {
                 </div>
                 <div className="modal-grid-item search">
                     <input className="modal-searchbar modal-bottom-div-item" type="text" placeholder="Search Keywords" value={modalKeySearch} onChange={e => setModalKeySearch(e.target.value)}></input>
-                    <button className="modal-search-button modal-bottom-div-item" onClick={SearchListings}>Search</button>
+                    <button className="modal-search-button modal-bottom-div-item" onClick={SearchModalListings}>Search</button>
                 </div>
             </div>
         </>
