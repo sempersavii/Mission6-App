@@ -146,6 +146,9 @@ const SearchAHouse = () => {
           </div>
         </div>
         <div className="main-content-grid-item" id="new-listings">
+
+{/* NEW LISTINGS */}
+
         <p className="new-listings-section-title">New Listings</p>
         <div className="new-listings-houses-div">
             <div className="listed-house">

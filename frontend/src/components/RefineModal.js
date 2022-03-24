@@ -14,8 +14,7 @@ function RefineModal() {
         bedrooms: "modal-bedrooms-Any", 
         carparks: "modal-carkparks-1", 
         bathrooms: "modal-carparks-any", 
-        avaliableNow: false, 
-        petFriendly: false, 
+        petFriendly: "yes", 
         sortBy: "modal-sort-newest",
         keySeach: modalKeySearch
     };
@@ -74,17 +73,13 @@ function RefineModal() {
         if (modalSeachQuery.petFriendly) 
         {
             e.target.className = "modal-toggle-buttons modal-toggle-buttons-off"
-            modalSeachQuery.petFriendly = false;
+            modalSeachQuery.petFriendly = "no";
         }
         else 
         {
             e.target.className = "modal-toggle-buttons modal-toggle-buttons-on"
-            modalSeachQuery.petFriendly = true;
+            modalSeachQuery.petFriendly = "yes";
         }
-    }
-
-    function setKeySearch() {
-
     }
 
     function ChangeModalSortBy(newModalSortBy) {
