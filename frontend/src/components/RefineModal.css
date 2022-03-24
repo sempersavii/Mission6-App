@@ -192,7 +192,9 @@
 
 /* Section 8 */
 
-.modal-pets-buttons-option {
+
+.modal-toggle-buttons {
+
     width: 113px;
     height: 34px;
 
@@ -203,6 +205,17 @@
     border-radius: 5px;
 
     margin: 57px 5px 0;
+}
+
+
+.modal-toggle-buttons-on {
+    color: white;
+    background-color: #C32848;
+}
+
+.modal-toggle-buttons-off {
+    color: black;
+    background-color: white;
 }
 
 /* Section 9 */
