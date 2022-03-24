@@ -10,7 +10,7 @@ const houses = [
         bathrooms: 1,
         bedrooms: 2,
         allowPets: "yes",
-        carPark: "yes",
+        carPark: 1,
         nearGrocery: "yes",
         nearParks: "yes"
     },
@@ -25,7 +25,7 @@ const houses = [
         bathrooms: 1,
         bedrooms: 2,
         allowPets: "yes",
-        carPark: "yes",
+        carPark: 1,
         nearGrocery: "yes",
         nearParks: "no"
     },
@@ -40,7 +40,7 @@ const houses = [
         bathrooms: 1,
         bedrooms: 2,
         allowPets: "yes",
-        carPark: "yes",
+        carPark: 2,
         nearGrocery: "yes",
         nearParks: "yes"
     },
@@ -55,7 +55,7 @@ const houses = [
         bathrooms: 1,
         bedrooms: 2,
         allowPets: "yes",
-        carPark: "yes",
+        carPark: 1,
         nearGrocery: "yes",
         nearParks: "yes"
     },
@@ -70,7 +70,7 @@ const houses = [
         bathrooms: 1,
         bedrooms: 2,
         allowPets: "yes",
-        carPark: "yes",
+        carPark: 2,
         nearGrocery: "yes",
         nearParks: "no"
     },
@@ -85,7 +85,7 @@ const houses = [
         bathrooms: 2,
         bedrooms: 2,
         allowPets: "yes",
-        carPark: "yes",
+        carPark: 2,
         nearGrocery: "yes",
         nearParks: "yes"
     },
@@ -100,7 +100,7 @@ const houses = [
         bathrooms: 1,
         bedrooms: 2,
         allowPets: "yes",
-        carPark: "yes",
+        carPark: 1,
         nearGrocery: "yes" 
     },
     {
@@ -114,7 +114,7 @@ const houses = [
         bathrooms: 1,
         bedrooms: 2,
         allowPets: "yes",
-        carPark: "yes",
+        carPark: 2,
         nearGrocery: "yes"
     }
 ]
