@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
 
+import HousesDataService from "../services/house"
+
 import Listing from "../components/SmallListing"
 import Modal from "../components/RefineModal"
 
@@ -11,17 +13,33 @@ import CovidNews from "../images/CovidNews.png"
 import CityNews from "../images/CityNews.png"
 
 const SearchAHouse = () => {
-  const [listingPrice, setListingPrice] = useState("$2000+");
-  
+  //variables
+  const [listings, setListings] = useState([]);
+  const [featuredListings, setFeaturedListings] = useState([]);
+
+  const [keySearch, setKeySearch] = useState("");
+  const [suburb, setSuburb] = useState("");
   const [propertyType, setPropertyType] = useState("Any");
+  const [sliderValue, setSliderValue] = useState(2000);
+  const [listingPrice, setListingPrice] = useState("$2000+");
   const [numberOfBedrooms, setNumberOfBedrooms] = useState("Any");
   const [numberOfBathrooms, setNumberOfBathrooms] = useState("Any");
 
-  const [suburb, setSuburb] = useState("");
-  const [keySearch, setKeySearch] = useState("");
-
-  const [sliderValue, setSliderValue] = useState(2000);
-
+  useEffect(() => {
+    documents();
+  }, []);
+  
+  const documents = () => {
+    HousesDataService.getAll()
+    .then(response => {
+      setListings(response.data);
+      setFeaturedListings(response.data.slice(0, 4));
+    })
+    .catch(e => {
+      console.log(e);
+    });
+  }
+  
   let searchQuery = {
     keySeach: keySearch,
     suburb: suburb,
@@ -31,6 +49,7 @@ const SearchAHouse = () => {
     bathrooms: numberOfBathrooms, 
   };
 
+  // functions
   function UpdateSlider(e) {
     setListingPrice("$" + e.target.value + "+");
     setSliderValue(e.target.value)
@@ -42,9 +61,46 @@ const SearchAHouse = () => {
   }
 
   function SearchListings() {
-    console.log(searchQuery);
+    let newFeaturedListings = listings;
+    
+    if (searchQuery.keySeach != "")
+    {
+      newFeaturedListings = newFeaturedListings.filter(LocationFilter);
+    }
+    if (searchQuery.suburb != "")
+    {
+      newFeaturedListings = newFeaturedListings.filter(SuburbFilter);
+    }
+    if (searchQuery.bathrooms != "Any")
+    {
+      newFeaturedListings = newFeaturedListings.filter(BathroomFilter);
+    }
+    if (searchQuery.bedrooms != "Any")
+    {
+      newFeaturedListings = newFeaturedListings.filter(BedroomFilter);
+    }
 
-    //Filter here
+    setFeaturedListings(newFeaturedListings.slice(0, 4));
+  }
+
+  function LocationFilter(listing) {
+    console.log(listing.location)
+    console.log(searchQuery.keySeach)
+    console.log("=====")
+
+    return listing.location == searchQuery.keySeach;
+  }
+
+  function SuburbFilter(listing) {
+    return listing.suburb == searchQuery.suburb;
+  }
+
+  function BathroomFilter(listing) {
+    return listing.bathrooms == searchQuery.bathrooms
+  }
+
+  function BedroomFilter(listing) {
+    return listing.bedrooms == searchQuery.bedrooms
   }
 
   return (
@@ -124,50 +180,41 @@ const SearchAHouse = () => {
         <div className="main-content-grid-item" id="featured">
           <p className="featured-section-title">Featured</p>
           <div className="featured-houses-div">
-            <div className="featured-houses-item">
-              <Listing />
-            </div>
-            <div className="featured-houses-item">
-              <Listing />
-            </div>
-            <div className="featured-houses-item">
-              <Listing />
-            </div>
-            <div className="featured-houses-item">
-              <Listing />
-            </div>
+            {featuredListings.map((listing) => {
+              return (
+                <>
+                  <Listing 
+                    image={listing.image}
+                    address={listing.location}
+                    price={`$${listing.price}/wk`}
+                    beds={listing.bedrooms}
+                    bathrooms={listing.bathrooms}
+                    garages={listing.carPark}
+                    type="Apartment"
+                  />
+                </>
+              );
+            })}
           </div>
         </div>
         <div className="main-content-grid-item" id="new-listings">
-
-{/* NEW LISTINGS */}
-
         <p className="new-listings-section-title">New Listings</p>
         <div className="new-listings-houses-div">
-            <div className="listed-house">
-              <Listing />
-            </div>
-            <div className="listed-house">
-              <Listing />
-            </div>
-            <div className="listed-house">
-              <Listing />
-            </div>
-            <div className="listed-house">
-              <Listing />
-            </div>
-            <div className="listed-house">
-              <Listing />
-            </div>
-            <div className="listed-house">
-              <Listing />
-            </div>
-            <div className="listed-house">
-              <Listing />
-            </div>
-            <div className="listed-house">
-              <Listing />
-            </div>
+            {listings.map((listing) => {
+              return (
+                <>
+                  <Listing 
+                    image={listing.image}
+                    address={listing.location}
+                    price={`$${listing.price}/wk`}
+                    beds={listing.bedrooms}
+                    bathrooms={listing.bathrooms}
+                    garages={listing.carPark}
+                    type="Apartment"
+                  />
+                </>
+              );
+            })}
           </div>
         </div>
         <div className="main-content-grid-item" id="tenant-news">
@@ -195,17 +242,3 @@ const SearchAHouse = () => {
 }
 
 export default SearchAHouse;
-
-
-// const SearchAHouse = () => {
-//     const [houses, setHouses] = useState([]);
-
-//     useEffect(() => {
-//       const fetchHouses = async () => {
-//           const {data} = await axios.get('http://localhost:5000/api/houses');
-//           setHouses(data);
-//       };
-//       fetchHouses();
-//   }, []);
-// }
-  
